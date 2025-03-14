@@ -2,6 +2,14 @@
     <DateDeGeneration>2025-03-13T14:54:10Z</DateDeGeneration>
     <ListeDomaines>
         <Domaine>
+            <Nom>nddtestasmae.mssante.fr</Nom>
+            <Description>BREST LA SAUVEGARDE</Description>
+            <DNCertificatOperateur>CN=medimail-asip.mipih.fr,OU=318310021300028,O=GIP MIPIH,ST=Haute-Garonne (31),C=FR</DNCertificatOperateur>
+            <ResponsableContact>08 10  61 50 50, medimail.diffusion@mipih.fr</ResponsableContact>
+            <SupportContact>08 10  61 50 50, medimail.technique@mipih.fr</SupportContact>
+            <DateMAJ>2025-03-14T15:34:10Z</DateMAJ>
+        </Domaine>
+        <Domaine>
             <Nom>adsea29.mssante.fr</Nom>
             <Description>BREST LA SAUVEGARDE</Description>
             <DNCertificatOperateur>CN=medimail-asip.mipih.fr,OU=318310021300028,O=GIP MIPIH,ST=Haute-Garonne (31),C=FR</DNCertificatOperateur>
