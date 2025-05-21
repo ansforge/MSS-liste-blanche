@@ -1,0 +1,52 @@
+name: shasum hash
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  pull-requests: write
+  contents: write
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: 18
+
+    - name: Build
+      uses: seepine/hash-files@v1
+      id: get-hash
+      with: 
+        patterns: '**/listeblanchemssante.xml'
+        
+    - name: Echo hash
+      run: echo ${{ steps.get-hash.outputs.hash }}
+      
+    - name: Overwrite file
+      uses: DamianReeves/write-file-action@master
+      with:
+        path: checksum
+        write-mode: overwrite
+        contents: ${{ steps.get-hash.outputs.hash }} 
+
+    - name : Add and Commit
+      uses: EndBug/add-and-commit@v9
+      with:
+        add: 'checksum'
+        default_author: github_actions
+        message: Modifying md5
+        committer_name: GitHub Actions
+        committer_email: actions@github.com
+
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref }}
